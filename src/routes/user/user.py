@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from src.controllers.user import UserController
-from src.models.user import User
+from src.schemas.user import User
 
 
 router = APIRouter(

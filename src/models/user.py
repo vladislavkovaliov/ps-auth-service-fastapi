@@ -1,9 +1,10 @@
-from typing import List, Optional
+from sqlalchemy import Column, Integer, String
 
-from pydantic import BaseModel
-
-
+from src.db.base import Base
 
 
-class User(BaseModel):
-    name: str
+class User(Base):
+    __tablename__ = "Users"
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String, unique=True, nullable=False)
