@@ -12,6 +12,7 @@ uvicorn = "*"
 sqlalchemy = "*"
 configparser = "*"
 aiosqlite = "*"
+requests = "*"
 
 [dev-packages]
 
