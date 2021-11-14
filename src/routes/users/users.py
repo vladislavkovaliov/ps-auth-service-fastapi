@@ -4,10 +4,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from requests import Session
 
 from src.controllers.users import UsersController
-from src.db.base import SessionLocal
-
 from src import schemas
-
+from src.db import get_db
 
 STATUS_TEXT_400 = "User not found."
 STATUS_TEXT_404 = "User already exists."
@@ -22,14 +20,6 @@ router = APIRouter(
         400: {"description": STATUS_TEXT_400},
     }
 )
-
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 
 @router.get("/", response_model=List[schemas.UserResponse])
