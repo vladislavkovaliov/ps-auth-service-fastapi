@@ -11,4 +11,4 @@ class Game(Base):
     sound = Column(String, unique=False, nullable=False)
     price = Column(String, unique=False, nullable=False)
     city = Column(String, unique=False, nullable=False)
-    file_url = Column(String, unique=False, nullable=False)
+    file_url = Column(String, unique=False, nullable=True)

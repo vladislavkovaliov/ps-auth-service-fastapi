@@ -23,7 +23,7 @@ router = APIRouter(
 
 
 @router.get("/", response_model=List[schemas.UserResponse])
-async def get_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+async def get_users(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     users = UsersController.get(db, skip, limit)
     return users
 

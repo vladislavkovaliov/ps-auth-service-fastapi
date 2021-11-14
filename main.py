@@ -3,9 +3,9 @@ from fastapi import FastAPI
 
 from src import models
 from src.db.base import database, engine
+from src.routes.games import games
 from src.routes.users import users
 from src.routes.user import user
-from src.routes.create_game import create_game
 from fastapi.middleware.cors import CORSMiddleware
 
 models.Base.metadata.create_all(bind=engine)
@@ -38,7 +38,7 @@ async def shutdown():
 
 app.include_router(users.router)
 app.include_router(user.router)
-app.include_router(create_game.router)
+app.include_router(games.router)
 
 
 if __name__ == "__main__":

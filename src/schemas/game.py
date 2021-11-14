@@ -9,7 +9,7 @@ class Game(BaseModel):
     sound: str
     price: str
     city: str
-    file_url: str
+    file_url: Optional[str]
 
 
 class GameRequest(Game):
